@@ -6,8 +6,12 @@ class Ability
 
     if user.admin?
         can :manage, Comment
+				can :manage, User
+				can :manage, Book
     elsif user.user?
         can :manage, Comment, user_id: user.id
+				can :read, Book
+				can :read, User
     else
         can :read, Comment
     end
