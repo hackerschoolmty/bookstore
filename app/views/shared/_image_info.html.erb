@@ -1,0 +1,8 @@
+<div id="image_<%= picture.id %>" class="col-md-3">
+  
+<%= image_tag picture.image.thumb.url %>
+<br><br>
+<% if can? :delete, picture %> 
+    <%= link_to "Eliminar", picture_path(picture), method: :delete, data: { confirm: "¿Estás seguro?"}, class: "btn btn-danger", remote:true  %>
+  <% end %>
+</div>

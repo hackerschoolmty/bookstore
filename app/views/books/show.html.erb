@@ -40,22 +40,6 @@
     <%= render 'shared/comment_info', comment: comment %>
   <% end %>
 </div>
+<br>
 
-<h3>Imágenes</h3>
-
-<%= form_for Picture.new, url: pictures_path do |f| %>
-  <%= f.hidden_field :picturable_id,  value: @book.id %>
-  <%= f.hidden_field :picturable_type, value: "Book" %>
-  <%= f.file_field :image %>
-  <br/>
-  <%= f.submit "Agregar", class: "btn btn-primary" %>
-<% end %>
-
-<div>
-  <% @pictures.each do |picture| %>
-    <%= image_tag picture.image.thumb.url %>
-    <%= link_to "Eliminar", picture_path(picture), method: :delete, data: { confirm: "¿Estás seguro?"} %>
-  <% end %>
-
-</div>
-
+ <%= render 'shared/images_section', picturable_id: @book.id, picturable_type:"Book", pictures: @pictures %>

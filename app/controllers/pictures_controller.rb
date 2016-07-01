@@ -30,6 +30,7 @@ class PicturesController < ApplicationController
       if @picture.save
         format.html { redirect_to book_path(@picture.picturable), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
@@ -56,8 +57,9 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to book_path(@picture.picturable), notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to  book_url(@picture.picturable), notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
+      format.js {}
     end
   end
 

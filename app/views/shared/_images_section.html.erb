@@ -1,0 +1,18 @@
+<div id="whole_pictures_section">
+  <h3>Imágenes</h3>
+  <%= form_for Picture.new, url: pictures_path, remote:true do |f| %>
+    <%= f.hidden_field :picturable_id,  value: picturable_id %>
+    <%= f.hidden_field :picturable_type, value: picturable_type %>
+    <%= f.file_field :image %>
+    <br/>
+    <%= f.submit "Agregar", class: "btn btn-primary" %>
+  <% end %>
+  
+  <br><br>
+
+  <div id="pictures_section">
+    <% @pictures.each do |picture| %>
+       <%= render 'shared/image_info', picture: picture %>
+    <% end %>
+  </div>
+</div
