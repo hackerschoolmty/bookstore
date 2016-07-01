@@ -4,6 +4,8 @@ class CreatePictures < ActiveRecord::Migration
       t.string :image
       t.integer :picturable_id
       t.string :picturable_type
+
+      t.timestamps null: false
     end
   end
 end
