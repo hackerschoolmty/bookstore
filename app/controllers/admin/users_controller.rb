@@ -11,6 +11,7 @@ class Admin::UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @pictures = @user.pictures.order("created_at desc")
   end
 
   # GET /users/new

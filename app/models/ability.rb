@@ -8,6 +8,7 @@ class Ability
       can :manage, Comment
       can :manage, User
       can :manage, Book
+      can :manage, Picture
     elsif user.user?
       can :manage, Comment, user_id: user.id
     end

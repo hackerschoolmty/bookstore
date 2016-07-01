@@ -1,0 +1,3 @@
+console.log("creando img....")
+$("#pictures_section").prepend("<%= escape_javascript(render 'shared/image_info', picture: @picture )%>")
+$("#whole_pictures_section")[0].reset()
