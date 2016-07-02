@@ -8,6 +8,10 @@ class Book < ActiveRecord::Base
   before_save :upcase_slug
   before_destroy :verify_if_theres_comments
 
+  def self.by_name char
+    where("name ilike ?", "%#{char}%")
+  end
+
   private
 
   def verify_if_theres_comments

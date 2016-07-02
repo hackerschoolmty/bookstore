@@ -38,10 +38,21 @@ gem 'mini_magick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+group :test do
+  gem "faker"
+  gem "capybara" 
+  gem "database_cleaner" 
+  gem 'rspec-collection_matchers'
+  gem "capybara-selenium"
+  gem "selenium-webdriver", "2.53.4"
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry'
+  gem "rspec-rails" 
+  gem "factory_girl_rails" 
 end
 
 group :development do
