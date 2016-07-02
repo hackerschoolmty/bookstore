@@ -6,4 +6,9 @@ FactoryGirl.define do
     password_confirmation "password"
     role "admin"
   end
+
+  trait :regular do
+    role "user"
+  end
+
 end
