@@ -28,6 +28,7 @@ class CommentsController < ApplicationController
     @comment = @book.comments.new(comment_params)
     respond_to do |format|
       if @comment.save
+        NotificationJob.set(wait: 1.minute).perform_later(@book.id, @comment.id)
         format.html { redirect_to book_path(@book), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
         format.js {}
