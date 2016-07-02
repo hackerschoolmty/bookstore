@@ -28,7 +28,7 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.text_area :description, cols: 100, rows: 5, class: "form-control" %>
   <br/>
-  <%= f.submit "Agregar", class: "btn btn-primary pull-right" %>
+  <%= f.submit "Agregar", class: "btn btn-primary pull-right", id: "add_button_comment" %>
   <% end %>
   <br/>
   <br/>
