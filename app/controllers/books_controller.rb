@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-	load_and_authorize_resource
-  skip_before_filter :authenticate_user!, only: [:index, :show]
+	#load_and_authorize_resource
+  #skip_before_filter :authenticate_user!, only: [:index, :show]
   
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
@@ -30,6 +30,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+
     respond_to do |format|
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
